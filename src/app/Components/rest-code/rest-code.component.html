@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row mt-5 gx-0">
+    
+        <div class="col-md-12 Gray-background py-4 px-3">
+         <div class="register-form text-center">
+            <img src="./assets/logo (1).png" class="Logo" alt="">
+             <H3 class="text-main fw-bold">Please check your emails for a message with your code. </H3>
+             <p *ngIf="apiError.length>0" class="alert alert-danger text-center">{{apiError}}</p>
+            <form action="" (ngSubmit)="VerifyCode()" [formGroup]="ResetCode">
+            
+             
+            <input formControlName="resetCode" type="text" placeholder="Enter Code" class="form-control text-center  mt-3" name="" id="">
+            <div *ngIf="ResetCode.get('resetCode')?.errors &&ResetCode.get('resetCode')?.touched "  class="alert alert-danger">
+                <p *ngIf="ResetCode.get('resetCode')?.getError('required')" class="m-0">Code Required</p>
+            </div>
+    
+            <button [disabled]="ResetCode.invalid" type="submit"  class="btn btn-dark text-light w-100 py-3 mt-3">
+                <i *ngIf="loading" class="fa-solid text-white fa-spinner fa-spin-pulse"></i>
+                <span *ngIf="!loading">Reset</span></button>
+                <a (click)="SendCodeAgain()" class="text-secondry curser-pointer ">Send Code Again</a>
+             
+        </form>
+         </div>
+        </div>
+    </div>
+</div>

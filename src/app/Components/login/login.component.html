@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row mt-5 gx-0">
+        <div class="col-md-6 " >
+           <div class="image">
+            
+           </div>
+        </div>
+        <div class="col-md-6 Gray-background py-4 px-3">
+         <div class="register-form text-center">
+            <img src="./assets/logo (1).png" class="Logo" alt="">
+             <H3 class="text-main fw-bold">Log In to  GameOver</H3>
+             <p *ngIf="apiError.length>0" class="alert alert-danger text-center">{{apiError}}</p>
+            <form action="" (ngSubmit)="HandleLogin()" [formGroup]="LoginForm">
+            
+             
+            <input  formControlName="email" type="email" placeholder="Email Address" class="form-control  mt-3" name="" id="">
+            <div *ngIf="LoginForm.get('email')?.errors &&LoginForm.get('email')?.touched "  class="alert alert-danger">
+                <p *ngIf="LoginForm.get('email')?.getError('email')" class="m-0">Email in-valid</p>
+                <p *ngIf="LoginForm.get('email')?.getError('required')" class="m-0">Email Required</p>
+            </div>
+            <input formControlName="password" type="password" placeholder="password" class="form-control mt-3" name="" id="">
+            <div *ngIf="LoginForm.get('password')?.errors &&LoginForm.get('password')?.touched " class="alert alert-danger">
+                <p *ngIf="LoginForm.get('password')?.getError('pattern')" class="m-0">password in-valid</p>
+                <p *ngIf="LoginForm.get('password')?.getError('required')" class="m-0">password Required</p>
+            </div>
+    
+            <button type="submit"  class="btn btn-dark text-light w-100 py-3 mt-3">
+                <i *ngIf="loading" class="fa-solid text-white fa-spinner fa-spin-pulse"></i>
+                <span *ngIf="!loading">Login</span></button>
+             
+        </form>
+        
+        <hr class="text-main">
+    
+            <P class="text-muted"><a routerLink="/ForgetPassword" class="text-decoration-none">Forget Password?</a></P>
+            <P class="text-muted">Not a member yet ?<a href="" class="text-decoration-none" routerLink="/register"> Create Account <i class="fa-solid fa-chevron-right"></i></a></P>
+         </div>
+        </div>
+    </div>
+</div>

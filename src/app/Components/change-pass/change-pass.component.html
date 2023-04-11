@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row mt-5 gx-0">
+    
+        <div class="col-md-12 Gray-background py-4 px-3">
+         <div class="register-form text-center">
+           
+             <H3 class="text-main fw-bold">Change Password ...</H3>
+            <form action="" (ngSubmit)="Changepassword()" [formGroup]="ChangePass">
+                <input formControlName="email" [disabled]="true" type="email" placeholder="Email Address" class="form-control text-center  mt-3" name="" id="">
+             
+                <input formControlName="newPassword" type="Password" placeholder="New password ..." class="form-control mt-3 text-center" name="" id="">
+                <div *ngIf="ChangePass.get('newPassword')?.errors && ChangePass.get('newPassword')?.touched" class="alert alert-danger">
+                    <p *ngIf="ChangePass.get('newPassword')?.getError('pattern')" class="m-0">password in-valid</p>
+                    <p *ngIf="ChangePass.get('newPassword')?.getError('required')" class="m-0">password Required</p>
+                </div>
+    
+            <button [disabled]="ChangePass.invalid" type="submit"  class="btn btn-dark text-light w-100 py-3 mt-3">
+                <i *ngIf="loading" class="fa-solid text-white fa-spinner fa-spin-pulse"></i>
+                <span *ngIf="!loading">Change</span></button>
+         
+             
+        </form>
+         </div>
+        </div>
+    </div>
+</div>

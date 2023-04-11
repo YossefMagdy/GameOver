@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg  shadow">
+    <div class="container">
+      <a routerLink="/home" class="navbar-brand  curser-pointer text-white fw-bold fs-3"><img src="./assets/logo (1).png" class="Logo" alt=""> GameOver</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li *ngIf="Islogin" class="nav-item">
+            <a class="nav-link text-main fw-bold curser-pointer" aria-current="page" routerLink="home">Home</a>
+          </li>
+          <li *ngIf="Islogin" class="nav-item">
+            <a class="nav-link  text-main fw-bold curser-pointer" routerLink="Games">All</a>
+          </li>
+          <li *ngIf="Islogin" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  text-main fw-bold  curser-pointer"  role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+              Platforms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item  curser-pointer" [routerLink]="['/Games','platform','pc']">Pc</a></li>
+              <li><a class="dropdown-item curser-pointer" [routerLink]="['/Games','platform','browser']">Browser</a></li>
+            </ul>
+          </li>
+          <li *ngIf="Islogin" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  curser-pointer text-main fw-bold" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sort-by
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item curser-pointer" [routerLink]="['/Games','sort-by','release-date']">release-date</a></li>
+              <li><a class="dropdown-item curser-pointer" [routerLink]="['/Games','sort-by','popularity']">Popularity</a></li>
+              <li><a class="dropdown-item curser-pointer"[routerLink]="['/Games','sort-by','alphabetical']">Alphabetical</a></li>
+              <li><a class="dropdown-item curser-pointer"[routerLink]="['/Games','sort-by','relevance']">Relevance</a></li>
+            </ul>
+          </li>
+          <li *ngIf="Islogin" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  curser-pointer text-main fw-bold" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+              Categories
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item  curser-pointer" [routerLink]="['/Games','categories','racing']">Racing</a></li>
+              <li><a class="dropdown-item  curser-pointer"  [routerLink]="['/Games','categories','sports']">Sports</a></li>
+              <li><a class="dropdown-item  curser-pointer"  [routerLink]="['/Games','categories','social']">Social</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','shooter']">Shooter</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','open-world']">Open-world</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','zombie']">Zombie</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','fantasy']">Fantasy</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','action-rpg']">Action-rpg</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','action']">Action</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','flight']">Flight</a></li>
+              <li><a class="dropdown-item  curser-pointer"[routerLink]="['/Games','categories','battle-royale']">Battle-royale</a></li>
+            </ul>
+          </li>
+        
+        </ul>
+        <ul  class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li *ngIf="!Islogin" class="nav-item">
+            <button class="btn  mx-2 text-main fw-bold" routerLink="Login">Login</button>
+          </li>
+          <li *ngIf="!Islogin" class="nav-item">
+            <button class="btn btn-Color" routerLink="register">Join Free</button>
+          </li>
+          <li *ngIf="Islogin" class="nav-item">
+            <button (click)="logout()" class="btn btn-Color mx-2"> Logout</button>
+          </li>
+         
+        
+        </ul>
+        
+      </div>
+    </div>
+  </nav>

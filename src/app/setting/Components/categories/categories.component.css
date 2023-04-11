@@ -1,0 +1,16 @@
+.game{
+  
+    transition: 0.5s all;
+}
+.game:hover{
+    scale: 1.02;
+}
+.Game-info{
+    height: 160px;
+}
+.Icon-box{
+    width: 95%;
+}
+.genre p{
+    height: 20px;
+}

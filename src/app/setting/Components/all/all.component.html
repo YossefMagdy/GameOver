@@ -1,0 +1,40 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<div class="container py-4">
+    <input [(ngModel)]="searchterm" type="text" placeholder="Search ..." class="form-control Search_Input mt-3 text-center w-75 mx-auto">
+    <div class="row mt-5 g-3">
+        <div class="col-lg-3 col-md-4 col-sm-5  "  *ngFor="let game of DisplayGame|search:searchterm">
+           <div class="game Gray-background  rounded-3 overflow-hidden position-relative curser-pointer" [routerLink]="['/Games','GameDetails',game.id]">
+            <div class="image">
+                <img src={{game.thumbnail}} class="w-100" alt="">
+            </div>
+            <div class="Game-info p-3">
+                <div class="d-flex justify-content-between">
+                    <div class="title">
+                        <h3 class="fw-bold text-main h6">{{game.title.split(" ").slice(0,3).join(" ")}}</h3>
+                    </div>
+                    <div class="button">
+                        <button class="btn btn-sm text-white fw-bolder secondry-bg">Free</button>
+                    </div>
+                </div>
+                  <p class="text-main">{{game.short_description.split(" ").slice(0,5).join(" ")}}</p>
+                <div class="Icon-box  position-absolute bottom-0 d-flex   justify-content-between">
+                <div class="icon">
+                    <i class="fa-solid fa-plus bg-main p-1 rounded-2"></i>
+                </div>           
+                <div class="GameCategorie d-flex ">
+                    <div class="genre ">
+                        <p class="bg-main rounded-3 px-2 fw-bold d-flex align-items-center">{{game.genre}}</p>
+                    </div>
+                    <div class="paltfrom mx-2">
+                        <i *ngIf="game.platform!='Web Browser'" title="Available on Window" class="fa-brands text-main fa-windows"></i>
+                    <i *ngIf="game.platform=='Web Browser'" title="Available on Browser" class="fa-solid  text-main fa-window-maximize"></i>
+                    </div>
+                </div>
+            </div>
+            </div>
+           </div>
+        </div>
+    </div>
+    <button *ngIf="AllGames.length>20 && DisplayGame.length!=AllGames.length && searchterm.length==0" (click)="Showmore()" class="btn btn-dark mx-auto d-block mt-4">Load More</button>
+</div> 

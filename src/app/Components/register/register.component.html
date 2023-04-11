@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row mt-5 gx-0">
+        <div class="col-md-6 ">
+            <div class="image">
+    
+            </div>
+        </div>
+        <div class="col-md-6 Gray-background py-4 px-3">
+            <div class="register-form text-center">
+                <H3 class="text-main fw-bold">Create My Account!</H3>
+                <p *ngIf="apiError.length>0" class="alert alert-danger text-center">Email Already in use</p>
+                <form action="" (ngSubmit)="handleRegister()" [formGroup]="registerForm">
+    
+                    <input formControlName="name" type="text" class="form-control mt-3" placeholder="First Name">
+                    <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched"
+                        class="alert alert-danger">
+                        <p *ngIf="registerForm.get('name')?.getError('minlength')" class="m-0">Name MinLength is 3</p>
+                        <p *ngIf="registerForm.get('name')?.getError('maxlength')" class="m-0">Name MaxLength is 10</p>
+                        <p *ngIf="registerForm.get('name')?.getError('required')" class="m-0">Name Required</p>
+                    </div>
+    
+                    <input formControlName="email" type="email" placeholder="Email Address" class="form-control  mt-3"
+                        name="" id="">
+                    <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched"
+                        class="alert alert-danger">
+                        <p *ngIf="registerForm.get('email')?.getError('email')" class="m-0">Email in-valid</p>
+                        <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">Email Required</p>
+                    </div>
+    
+    
+                    <input formControlName="password" type="password" placeholder="password" class="form-control mt-3" name="" id="">
+                    <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger">
+                        <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">password in-valid</p>
+                        <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">password Required</p>
+                    </div>
+    
+                    <input formControlName="rePassword" type="password" placeholder="rePassword" class="form-control mt-3" name="" id="">
+                    <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger">
+                        <p *ngIf="registerForm.get('rePassword')?.getError('pattern')" class="m-0">rePassword in-valid</p>
+                        <p *ngIf="registerForm.get('rePassword')?.getError('passwordMatch')" class="m-0">Passoword Not match</p>
+                        <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="m-0">rePassword Required</p>
+                    </div>
+    
+                    <input formControlName="phone" type="tel" placeholder="Phone" class="form-control mt-3" name="" id="">
+                    <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="alert alert-danger">
+                        <p *ngIf="registerForm.get('phone')?.getError('pattern')" class="m-0">phone in-valid</p>
+                        <p *ngIf="registerForm.get('phone')?.getError('required')" class="m-0">phone Required</p>
+                    </div>
+    
+                    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-dark text-light w-100 py-3 mt-3">
+                        <i *ngIf="loading" class="fa-solid text-white fa-spinner fa-spin-pulse"></i>
+                       <span *ngIf="!loading" > Create Account</span></button>
+    
+                </form>
+                <p class="text-muted mt-3">This site is protected by reCAPTCHA and the Google <a class="text-muted"
+                        href="https://policies.google.com/privacy">Privacy Policy</a> and <a
+                        href="https://policies.google.com/terms" class="text-muted">Terms of Service</a> apply.</p>
+                <hr class="text-main">
+    
+                <P class="text-muted">Already a member ? <a routerLink="/Login" class="text-decoration-none">Log In <i
+                            class="fa-solid fa-chevron-right"></i></a></P>
+            </div>
+        </div>
+    </div>
+</div>
