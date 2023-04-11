@@ -14,8 +14,11 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./game-details.component.css']
 })
 export class GameDetailsComponent implements OnInit {
+clip:any = document.querySelector(".vid")
 ObjectExist:boolean=false
 productId!:any
+videolink:string=''
+backgroundimage:string=''
 DReady:boolean=false
 GameDetails!:GameDetails
   constructor(private _ActivatedRoute:ActivatedRoute,private _GamesService:GamesService,private _Router:Router,private spinner:NgxSpinnerService){
@@ -25,6 +28,7 @@ GameDetails!:GameDetails
     
   }
   ngOnInit(): void {
+
     this.spinner.show();
     this._GamesService.GameDetails(this.productId).subscribe({
       next:(response)=>{
@@ -33,12 +37,17 @@ GameDetails!:GameDetails
        }
        this.DReady=true
         this.GameDetails=response
+        this.videolink=`https://www.freetogame.com/g/${response.id}/videoplayback.webm`
+        // this.backgroundimage=`url(https://www.freetogame.com/g/${response.id}/background.jpg  )`
+        this.backgroundimage=`linear-gradient(rgba(39,43,48,.9),#272b30),url(https://www.freetogame.com/g/${response.id}/background.jpg  )`
+       console.log(response)
         if(typeof this.GameDetails.minimum_system_requirements !='undefined'){
           this.ObjectExist=true
         }else{
           this.ObjectExist=false
         }
       }
+      
      
 
     })

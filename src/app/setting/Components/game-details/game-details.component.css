@@ -1,0 +1,11 @@
+.Sh-video:hover .Image-ho{
+    opacity: 0;
+    
+}
+.Image-ho{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    transition: 0.5s;
+    background-size: cover
+}

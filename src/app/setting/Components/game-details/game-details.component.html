@@ -1,10 +1,13 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
-
-<div *ngIf="DReady" class="container">
-    <div class="row mt-5">
-        <div class="col-md-4" >
+<div class="BackgroundImG" [ngStyle]="{'background-image':backgroundimage,'background-repeat':'no-repeat','height':'100vh','background-size': 'cover'}">
+<div *ngIf="DReady" class="container py-5" >
+    <div class="row">
+        <div class="col-md-4"  >
             <div class="thumbnail">
-                <img [src]="GameDetails.thumbnail" class="w-100" alt="">
+                <div class="position-relative Sh-video">
+                    <video  loop="" muted="" onmouseover="this.play()" onmouseout="this.pause();" class="w-100 top-0 rounded-2 position-relative" autoplay=""><source  type="video/webm" [src]="videolink"></video>
+                <img [src]="GameDetails.thumbnail" class="w-100 Image-ho " alt="">
+                </div>
                 <div class="buttons d-flex justify-content-between mt-4">
                     <button class="btn btn-dark text-white">Free</button>
                     <button  (click)="GotoPage(GameDetails.freetogame_profile_url)" class="btn btn-info text-white w-75">PLAY NOW <i _ngcontent-lay-c6="" class="fas fa-sign-out-alt"></i></button>
@@ -65,4 +68,5 @@
            
         </div>
     </div>
+</div>
 </div>
