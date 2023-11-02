@@ -9,5 +9,5 @@ display game category
 display information about game
 responsive to all screens
 
-Demo:https://lnkd.in/d4UGF28z
+Demo:https://yossefmagdy.github.io/GameOver/
 
