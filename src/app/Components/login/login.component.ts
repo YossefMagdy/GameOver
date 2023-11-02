@@ -16,8 +16,8 @@ export class LoginComponent {
   apiError:string=''
   loading:boolean=false
   LoginForm:FormGroup=new FormGroup({
-    email:new FormControl(null,[Validators.required]),
-    password:new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-Z0-9@-_$%#@!*.]{8,15}$/)])
+    email:new FormControl('demo@gmail.com',[Validators.required]),
+    password:new FormControl('Y@123456',[Validators.required,Validators.pattern(/^[a-zA-Z0-9@-_$%#@!*.]{8,15}$/)])
   })
 
   HandleLogin(){
